@@ -1,35 +1,36 @@
 .Projects {
     width: 50vw;
     position: relative;
+    overflow: hidden;
 }
 
-.Projects img{
+.Projects img {
     /* width: 60vw; */
     width: 100%;
     height: 85%;
     object-fit: cover;
 }
 
-.Projects-BackCover{
+.Projects-BackCover {
     position: absolute;
-    left: 0;
+    transform: translateX(-100%);
     top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     background-color: #783A64;
-    width:100%;
+    width: 100%;
     height: 85%;
     box-shadow: 0 0 50px black;
     opacity: 0;
 
-    transition: left 0.4s ease-in-out;
+    transition: all 0.2s ease-in-out;
     -o-transition: left 0.4s ease-in-out;
     -ms-transition: left 0.4s ease-in-out;
     -moz-transition: left 0.4s ease-in-out;
-    -webkit-transition: left 0.4s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
 }
 
-.Projects-BackCover h1{
+.Projects-BackCover h1 {
     font-size: 125px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -61,7 +62,7 @@
     margin-bottom: 10px;
 }
 
-.Projects-BackCover-Content button{
+.Projects-BackCover-Content button {
     width: 25%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -73,7 +74,11 @@
     cursor: pointer;
 }
 
-.Projects-BackCover:hover {
+/* .Projects-BackCover:hover {
     opacity: 0.98;
-    /* transition: scale 450ms; */
+} */
+
+.Projects:hover .Projects-BackCover {
+    transform: translateX(0);
+    opacity: 1;
 }
