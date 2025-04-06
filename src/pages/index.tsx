@@ -49,27 +49,21 @@ export default function IndexPage() {
               label="An Experienced Software Engineer and Developer with a Passion for Building Innovative Solutions"
             />
           </Animate>
+          <Animate animation="fade-in-up" className="text-center" delay={200}>
+            <Button
+              as={Link}
+              target="_blank"
+              color="danger"
+              endContent={<IconFileCv />}
+              href="https://drive.google.com/file/d/1J9eqBIZKGyW_sX6upgbHkXtYd9ccgf-d/view"
+              variant="flat"
+            >
+              Resume
+            </Button>
+          </Animate>
+
           <Animate animation="fade-in-up" delay={400}>
             <Group className="items-center gap-2">
-              <Group>
-                <Button
-                  as={Link}
-                  color="danger"
-                  endContent={<IconFileCv />}
-                  href="https://drive.google.com/file/d/1J9eqBIZKGyW_sX6upgbHkXtYd9ccgf-d/view"
-                  variant="flat"
-                >
-                  Resume
-                </Button>
-              </Group>
-              <Button
-                color="primary"
-                endContent={<IconArrowDownRight />}
-                variant="flat"
-                onPress={() => scrollToSection("projects")}
-              >
-                Projects
-              </Button>
               <Button
                 color="warning"
                 endContent={<IconBriefcase />}
@@ -77,6 +71,14 @@ export default function IndexPage() {
                 onPress={() => scrollToSection("experience")}
               >
                 Experience
+              </Button>
+              <Button
+                color="primary"
+                endContent={<IconArrowDownRight />}
+                variant="flat"
+                onPress={() => scrollToSection("projects")}
+              >
+                Projects
               </Button>
             </Group>
           </Animate>

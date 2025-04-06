@@ -10,7 +10,6 @@ export const ProjectCard = ({
   imageSrc,
   link,
   description,
-  subDescription,
 }: ProjectCardProps) => {
   return (
     <Card

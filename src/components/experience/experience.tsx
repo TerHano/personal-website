@@ -7,6 +7,7 @@ type ExperienceProps = (typeof siteConfig.experience)[0];
 
 export const Experience = ({
   jobTitle,
+  location,
   companyName,
   startDate,
   endDate,
@@ -25,19 +26,20 @@ export const Experience = ({
 
   return (
     <Group fullWidth direction="vertical">
-      <BlackWhiteGradientText className="text-md sm:text-lg" label={jobTitle} />
-      <Group
-        className="justify-between text-sm sm:text-md mb-1"
-        direction="horizontal"
-      >
+      <Group className="text-sm sm:text-lg justify-between gap-4">
+        <BlackWhiteGradientText className="truncate" label={jobTitle} />
         <BlackWhiteGradientText
-          className="text-tiny sm:text-base"
-          label={companyName}
-        />
-        <BlackWhiteGradientText
-          className="text-tiny sm:text-base"
+          className="truncate"
           label={`${startDateStr} / ${endDateStr}`}
         />
+      </Group>
+      <Group
+        className="justify-between text-tiny sm:text-md mb-1 gap-4"
+        direction="horizontal"
+      >
+        <BlackWhiteGradientText label={companyName} />
+        <BlackWhiteGradientText label={location} />
+
         {/* <span className="text-tiny sm:text-base">{`${startDateStr} / ${endDateStr}`}</span> */}
       </Group>
       <ul className="list-disc mx-6 text-tiny sm:text-sm">
