@@ -34,7 +34,12 @@ export default function IndexPage() {
             animation="fade-in-up"
             className="flex flex-col items-center gap-2"
           >
-            <Avatar className="w-20 h-20" src={SelfImage} />
+            <Avatar
+              isBordered
+              color="default"
+              className="w-20 h-20"
+              src={SelfImage}
+            />
             <div className="flex items-center gap-2">
               <BlackWhiteGradientText
                 className="font-bold text-sm"
@@ -66,15 +71,17 @@ export default function IndexPage() {
             <Group className="items-center gap-2">
               <Button
                 color="warning"
-                endContent={<IconBriefcase />}
+                size="sm"
+                endContent={<IconBriefcase size={14} />}
                 variant="flat"
                 onPress={() => scrollToSection("experience")}
               >
                 Experience
               </Button>
               <Button
+                size="sm"
                 color="primary"
-                endContent={<IconArrowDownRight />}
+                endContent={<IconArrowDownRight size={14} />}
                 variant="flat"
                 onPress={() => scrollToSection("projects")}
               >

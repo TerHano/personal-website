@@ -34,7 +34,7 @@ export const Experience = ({
         />
       </Group>
       <Group
-        className="justify-between text-tiny sm:text-md mb-1 gap-4"
+        className="justify-between text-tiny sm:text-base mb-1 gap-4"
         direction="horizontal"
       >
         <BlackWhiteGradientText label={companyName} />

@@ -63,7 +63,7 @@ export const siteConfig = {
     {
       jobTitle: "Software Engineer III",
       companyName: "Visual Lease",
-      startDate: "September 2023",
+      startDate: "9/1/2023",
       location: "Woodbridge, NJ",
       achievements: [
         "Redesigned the Visual Lease application using React 18",
@@ -74,8 +74,8 @@ export const siteConfig = {
     {
       jobTitle: "Software Engineer II",
       companyName: "Visual Lease",
-      startDate: "April 2022",
-      endDate: "September 2023",
+      startDate: "4/1/2022",
+      endDate: "9/1/2023",
       location: "Woodbridge, NJ",
       achievements: [
         "Enhanced the Visual Lease application by creating new feature pages using Angular and supporting them with .NET API’s",
@@ -86,8 +86,8 @@ export const siteConfig = {
     {
       jobTitle: "Senior Technology Professional",
       companyName: "Public Service Enterprise Group",
-      startDate: "January 2021",
-      endDate: "March 2022",
+      startDate: "1/1/2021",
+      endDate: "3/1/2022",
       location: "Newark, NJ",
       achievements: [
         "Upgraded the Sitecore CMS platform from 8.2 to 10.1 and transitioned from IaaS to PaaS",
