@@ -8,7 +8,7 @@ import {
 import { Link } from "@heroui/link";
 import { useCallback } from "react";
 
-import SelfImage from "@/assets/self-photo.jpg";
+import SelfImage from "@/assets/self-photo.jpeg";
 import { CompanyShowcase } from "@/components/company-showcase";
 import DefaultLayout from "@/layouts/default";
 import { BlackWhiteGradientText } from "@/components/black-white-gradient-text";
