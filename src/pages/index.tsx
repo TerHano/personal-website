@@ -32,7 +32,7 @@ export default function IndexPage() {
     <DefaultLayout>
       <Group
         direction="vertical"
-        className="items-center justify-center gap-14 pb-28"
+        className="items-center justify-center gap-10 pb-28"
       >
         <Group
           direction="vertical"
