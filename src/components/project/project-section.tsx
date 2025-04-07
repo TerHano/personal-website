@@ -9,9 +9,9 @@ export const ProjectSection = () => {
 
   return (
     <Section
-      label="Projects"
-      id="projects"
       description="What I've been working on"
+      id="projects"
+      label="Projects"
     >
       <div className="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 md:grid-cols-3">
         {projects.map(
@@ -24,7 +24,7 @@ export const ProjectSection = () => {
               name={name}
               subDescription={subDescription}
             />
-          )
+          ),
         )}
       </div>
     </Section>

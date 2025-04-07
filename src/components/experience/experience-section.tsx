@@ -1,6 +1,8 @@
-import { siteConfig } from "@/config/site";
-import { Experience } from "./experience";
 import { Section } from "../../layouts/Section";
+
+import { Experience } from "./experience";
+
+import { siteConfig } from "@/config/site";
 
 export const ExperienceSection = () => {
   const workExperience = siteConfig.experience;
