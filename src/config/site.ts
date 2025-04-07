@@ -75,7 +75,7 @@ export const siteConfig = {
     {
       name: "Car Theater",
       imageSrc:
-        "https://images.unsplash.com/photo-1624943041234-68ae669e6177?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://dashcamdiscount.com/wp-content/uploads/2024/01/How-to-Watch-Netflix-on-a-Tesla-Screen-1536x878.png",
       description: "Full Screen Media Apps In Your Tesla",
       link: "https://cartheater.terhano.com",
       subDescription: "Watch movies, listen to music, and more.",
