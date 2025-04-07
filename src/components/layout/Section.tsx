@@ -1,7 +1,6 @@
 import { BlackWhiteGradientText } from "../black-white-gradient-text";
 import { useAppearOnScroll } from "../../hooks/useAppearOnScroll";
 import { Group } from "./Group";
-import { Divider } from "@heroui/divider";
 
 export const Section = ({
   id,
@@ -30,7 +29,7 @@ export const Section = ({
         />
         {description ? (
           <BlackWhiteGradientText
-            className="font-semibold"
+            className="font-semibold text-small"
             label={description}
           />
         ) : null}

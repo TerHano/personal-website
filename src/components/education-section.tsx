@@ -1,4 +1,3 @@
-import { Divider } from "@heroui/divider";
 import { BlackWhiteGradientText } from "./black-white-gradient-text";
 import { Group } from "./layout/Group";
 import { Section } from "./layout/Section";

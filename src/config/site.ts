@@ -1,5 +1,3 @@
-import { image } from "@heroui/theme";
-
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {

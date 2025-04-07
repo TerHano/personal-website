@@ -1,14 +1,12 @@
 import { Link } from "@heroui/link";
 import {
   Navbar as HeroUINavbar,
-  NavbarBrand,
   NavbarContent,
   NavbarItem,
 } from "@heroui/navbar";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
-  IconFaceMask,
   IconMailbox,
 } from "@tabler/icons-react";
 
