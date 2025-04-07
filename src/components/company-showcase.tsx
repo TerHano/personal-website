@@ -40,6 +40,7 @@ export const CompanyLogoImage = ({ imageSrc }: { imageSrc: string }) => {
     <img
       alt="Company Logo"
       src={imageSrc}
+      style={{ transform: "translateZ(0)" }}
       className="dark:brightness-0 dark:invert max-w-40 brightness-100 invert-0"
     />
   );
