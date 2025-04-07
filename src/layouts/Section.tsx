@@ -1,5 +1,5 @@
-import { BlackWhiteGradientText } from "../black-white-gradient-text";
-import { useAppearOnScroll } from "../../hooks/useAppearOnScroll";
+import { BlackWhiteGradientText } from "../components/black-white-gradient-text";
+import { useAppearOnScroll } from "../hooks/useAppearOnScroll";
 import { Group } from "./Group";
 
 export const Section = ({

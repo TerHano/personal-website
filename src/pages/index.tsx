@@ -16,7 +16,7 @@ import { BlackWhiteGradientText } from "@/components/black-white-gradient-text";
 import { Animate } from "@/components/animate";
 import { ProjectSection } from "@/components/project/project-section";
 import { ExperienceSection } from "@/components/experience/experience-section";
-import { Group } from "@/components/layout/Group";
+import { Group } from "@/layouts/Group";
 import { EducationSection } from "@/components/education-section";
 
 export default function IndexPage() {

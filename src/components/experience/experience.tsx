@@ -1,5 +1,5 @@
 import { BlackWhiteGradientText } from "../black-white-gradient-text";
-import { Group } from "../layout/Group";
+import { Group } from "../../layouts/Group";
 
 import { siteConfig } from "@/config/site";
 
