@@ -2,7 +2,7 @@ import { FC, useState, useEffect } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@heroui/switch";
 import clsx from "clsx";
-import { useTheme } from "@heroui/use-theme";
+import { ThemeProps, useTheme } from "@heroui/use-theme";
 import { IconMoon, IconSun } from "@tabler/icons-react";
 
 export interface ThemeSwitchProps {
@@ -16,7 +16,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
 }) => {
   const [isMounted, setIsMounted] = useState(false);
 
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme(ThemeProps.DARK);
 
   const {
     Component,

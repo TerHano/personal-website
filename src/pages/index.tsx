@@ -7,6 +7,7 @@ import {
 } from "@tabler/icons-react";
 import { Link } from "@heroui/link";
 import { useCallback } from "react";
+import { Divider } from "@heroui/divider";
 
 import SelfImage from "@/assets/self-photo.jpeg";
 import { CompanyShowcase } from "@/components/company-showcase";
@@ -16,6 +17,7 @@ import { Animate } from "@/components/animate";
 import { ProjectSection } from "@/components/project/project-section";
 import { ExperienceSection } from "@/components/experience/experience-section";
 import { Group } from "@/components/layout/Group";
+import { EducationSection } from "@/components/education-section";
 
 export default function IndexPage() {
   const scrollToSection = useCallback((sectionId: string) => {
@@ -28,8 +30,14 @@ export default function IndexPage() {
 
   return (
     <DefaultLayout>
-      <div className="flex flex-col items-center justify-center gap-16">
-        <div className="flex items-center justify-center flex-col gap-2 mx-8 ">
+      <Group
+        direction="vertical"
+        className="items-center justify-center gap-14 pb-28"
+      >
+        <Group
+          direction="vertical"
+          className="items-center justify-center gap-2 mx-8 "
+        >
           <Animate
             animation="fade-in-up"
             className="flex flex-col items-center gap-2"
@@ -59,9 +67,10 @@ export default function IndexPage() {
               as={Link}
               target="_blank"
               color="danger"
-              endContent={<IconFileCv />}
+              startContent={<IconFileCv />}
               href="https://drive.google.com/file/d/1J9eqBIZKGyW_sX6upgbHkXtYd9ccgf-d/view"
               variant="flat"
+              size="md"
             >
               Resume
             </Button>
@@ -71,17 +80,17 @@ export default function IndexPage() {
             <Group className="items-center gap-2">
               <Button
                 color="warning"
-                size="sm"
-                endContent={<IconBriefcase size={14} />}
+                size="md"
+                startContent={<IconBriefcase size={14} />}
                 variant="flat"
                 onPress={() => scrollToSection("experience")}
               >
                 Experience
               </Button>
               <Button
-                size="sm"
+                size="md"
                 color="primary"
-                endContent={<IconArrowDownRight size={14} />}
+                startContent={<IconArrowDownRight size={14} />}
                 variant="flat"
                 onPress={() => scrollToSection("projects")}
               >
@@ -89,11 +98,14 @@ export default function IndexPage() {
               </Button>
             </Group>
           </Animate>
-        </div>
+        </Group>
         <CompanyShowcase />
+        <EducationSection />
+        <Divider className="w-11/12" />
         <ExperienceSection />
+        <Divider className="w-11/12" />
         <ProjectSection />
-      </div>
+      </Group>
     </DefaultLayout>
   );
 }

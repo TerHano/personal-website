@@ -1,6 +1,7 @@
 import { BlackWhiteGradientText } from "../black-white-gradient-text";
-import { useAppearOnScroll } from "../hooks/useAppearOnScroll";
+import { useAppearOnScroll } from "../../hooks/useAppearOnScroll";
 import { Group } from "./Group";
+import { Divider } from "@heroui/divider";
 
 export const Section = ({
   id,
@@ -18,13 +19,13 @@ export const Section = ({
   return (
     <section
       ref={ref}
-      className="flex flex-col items-center gap-2 justify-center mx-6 mb-8 sm:items-center animate-fade-in-up"
+      className="flex flex-col items-center gap-2 justify-center px-6 w-full sm:items-center animate-fade-in-up"
       id={id}
       style={{ animationPlayState: shouldAppear ? "running" : "paused" }}
     >
       <Group direction="vertical" className="gap-0 mb-2">
         <BlackWhiteGradientText
-          className="text-3xl font-bold text-center mb-1"
+          className="text-3xl font-bold text-center"
           label={label}
         />
         {description ? (

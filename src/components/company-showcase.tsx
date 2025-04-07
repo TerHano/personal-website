@@ -48,7 +48,7 @@ export const CompanyShowcase = () => {
         label="Proud developer for"
       />
       <Card fullWidth className="rounded-none lg:rounded">
-        <CardBody className="px-4 animate-fade-in-up">
+        <CardBody className="px-0 animate-fade-in-up">
           <div className="glide">
             <div className="glide__track" data-glide-el="track">
               <ul className="glide__slides items-center justify-center">

@@ -1,3 +1,5 @@
+import { image } from "@heroui/theme";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -97,6 +99,21 @@ export const siteConfig = {
         "Wrote test cases using Selenium to ensure the stability of the website before each release",
       ],
     },
+    {
+      jobTitle: "Technology Professional",
+      companyName: "Public Service Enterprise Group",
+      startDate: "7/19/2019",
+      endDate: "12/1/2020",
+      location: "Newark, NJ",
+      achievements: [
+        "Developed the PSEG website using the ASP .NET framework and content driven from Sitecore",
+        "Re-engineered and optimized workflows leading to a 40% reduction in IT labor",
+        "Created analytical reports to analyze and improve customer satisfaction",
+        "Created forms that replace traditional pen and paper applications for more efficient processing",
+        "Developed Java web applications using the Spring Boot framework to perform the necessary lifecycle operations on users using OKTA API’s and SAP connectivity",
+        "Fixed 100+ defects while also incorporating enhancements to improve the user experience",
+      ],
+    },
   ],
 
   projects: [
@@ -109,16 +126,16 @@ export const siteConfig = {
     },
     {
       name: "Car Theater",
+      imageSrc:
+        "https://images.unsplash.com/photo-1624943041234-68ae669e6177?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description: "Full Screen Media Apps In Your Tesla",
       link: "https://cartheater.terhano.com",
       subDescription: "Watch movies, listen to music, and more.",
     },
   ],
   links: {
+    email: "terry.hanoman@outlook.com",
     github: "https://github.com/TerHano",
     linkedIn: "https://www.linkedin.com/in/terry-hanoman-90039b119/",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
   },
 };
