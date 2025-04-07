@@ -10,7 +10,7 @@ import { useCallback } from "react";
 import { Divider } from "@heroui/divider";
 
 import SelfImage from "@/assets/self-photo.jpeg";
-import { CompanyShowcase } from "@/components/company-showcase";
+import { CompanyShowcase } from "@/components/company-showcase/company-showcase";
 import DefaultLayout from "@/layouts/default";
 import { BlackWhiteGradientText } from "@/components/black-white-gradient-text";
 import { Animate } from "@/components/animate";
