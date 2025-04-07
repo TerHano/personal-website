@@ -16,7 +16,7 @@ import { BlackWhiteGradientText } from "@/components/black-white-gradient-text";
 import { Animate } from "@/components/animate";
 import { ProjectSection } from "@/components/project/project-section";
 import { ExperienceSection } from "@/components/experience/experience-section";
-import { Group } from "@/components/layout/Group";
+import { Group } from "@/layouts/Group";
 import { EducationSection } from "@/components/education-section";
 
 export default function IndexPage() {
@@ -32,7 +32,7 @@ export default function IndexPage() {
     <DefaultLayout>
       <Group
         direction="vertical"
-        className="items-center justify-center gap-14 pb-28"
+        className="items-center justify-center gap-10 pb-28"
       >
         <Group
           direction="vertical"

@@ -1,4 +1,4 @@
-import { Section } from "../layout/Section";
+import { Section } from "../../layouts/Section";
 
 import { ProjectCard } from "./project-card";
 

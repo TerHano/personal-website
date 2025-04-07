@@ -1,62 +1,12 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Vite + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Terry Hanoman",
+  description: "Personal Site",
   navItems: [
     {
       label: "Home",
       href: "/",
-    },
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    },
-  ],
-  navMenuItems: [
-    {
-      label: "Profile",
-      href: "/profile",
-    },
-    {
-      label: "Dashboard",
-      href: "/dashboard",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
     },
   ],
   experience: [
@@ -66,7 +16,7 @@ export const siteConfig = {
       startDate: "9/1/2023",
       location: "Woodbridge, NJ",
       achievements: [
-        "Redesigned the Visual Lease application using React 18",
+        "Redesigned the Visual Lease application using React 18 and implemented design mocks crafted in Figma",
         "Developed a component library that eased new page/feature development for engineers and guaranteed web accessibility for users",
         "Built API’s that interact with Arcadia (Energy Data Platform) to enhance customer lease data integration into the platform.",
       ],
