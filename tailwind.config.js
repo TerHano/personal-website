@@ -21,10 +21,20 @@ export default {
           "0%": { opacity: "0", transform: "translateX(10px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
+        ticker: {
+          "0%": {
+            transform: "translate3d(0, 0, 0)",
+          },
+          "100%": {
+            transform: "translate3d(-48rem, 0, 0)",
+          },
+        },
       },
+
       animation: {
         "fade-in-up": "fade-in-up .75s ease-out forwards",
         "fade-in-left": "fade-in-left .75s ease-out forwards",
+        ticker: "ticker 12s linear infinite",
       },
     },
   },
