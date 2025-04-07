@@ -1,7 +1,8 @@
-import { siteConfig } from "@/config/site";
 import { Card, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
+
+import { siteConfig } from "@/config/site";
 
 type ProjectCardProps = (typeof siteConfig.projects)[0];
 

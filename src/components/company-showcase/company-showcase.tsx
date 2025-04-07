@@ -1,12 +1,10 @@
-import { Card, CardBody } from "@heroui/card";
-import styles from "./company-showcase.module.css";
-
 import VisualLeaseLogo from "../../assets/images/companies/vl_logo.png";
 import PSEGLogo from "../../assets/images/companies/pseg_logo.png";
 import CostarGroupLogo from "../../assets/images/companies/costar_group_logo.png";
 import High5GamesLogo from "../../assets/images/companies/high_5_games_logo.png";
-
 import { BlackWhiteGradientText } from "../black-white-gradient-text";
+
+import styles from "./company-showcase.module.css";
 
 export const CompanyShowcase = () => {
   return (
@@ -36,9 +34,9 @@ export const CompanyLogoImage = ({ imageSrc }: { imageSrc: string }) => {
   return (
     <img
       alt="Company Logo"
+      className="dark:brightness-0 dark:invert max-w-40 brightness-100 invert-0"
       src={imageSrc}
       style={{ transform: "translateZ(0)" }}
-      className="dark:brightness-0 dark:invert max-w-40 brightness-100 invert-0"
     />
   );
 };
