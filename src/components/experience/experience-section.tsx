@@ -9,7 +9,7 @@ export const ExperienceSection = () => {
 
   return (
     <Section id="experience" label="Experience">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 [@media(min-width:56rem)]:grid-cols-2 gap-8">
         {workExperience.map((experience) => {
           return <Experience key={experience.jobTitle} {...experience} />;
         })}
