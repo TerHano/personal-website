@@ -75,10 +75,19 @@ export const siteConfig = {
     {
       name: "Car Theater",
       imageSrc:
-        "https://dashcamdiscount.com/wp-content/uploads/2024/01/How-to-Watch-Netflix-on-a-Tesla-Screen-1536x878.png",
+        "https://images.unsplash.com/photo-1553260188-75a8d6205b6c?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description: "Full Screen Media Apps In Your Tesla",
       link: "https://cartheater.terhano.com",
       subDescription: "Watch movies, listen to music, and more.",
+    },
+    {
+      name: "EntryAlert",
+      imageSrc:
+        "https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      description: "Global Entry Interview Tracker and Alert System",
+      link: "https://entryalert.terhano.com",
+      subDescription:
+        "Track your Global Entry interview status and get alerts.",
     },
   ],
   links: {
