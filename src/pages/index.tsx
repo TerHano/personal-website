@@ -22,8 +22,10 @@ import { EducationSection } from "@/components/education-section";
 export default function IndexPage() {
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
+
     if (element) {
       const y = element.getBoundingClientRect().top + window.scrollY - 60;
+
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   }, []);
@@ -31,12 +33,12 @@ export default function IndexPage() {
   return (
     <DefaultLayout>
       <Group
-        direction="vertical"
         className="items-center justify-center gap-10 pb-28"
+        direction="vertical"
       >
         <Group
-          direction="vertical"
           className="items-center justify-center gap-2 mx-8 "
+          direction="vertical"
         >
           <Animate
             animation="fade-in-up"
@@ -44,8 +46,9 @@ export default function IndexPage() {
           >
             <Avatar
               isBordered
-              color="default"
               className="w-20 h-20"
+              color="default"
+              radius="lg"
               src={SelfImage}
             />
             <div className="flex items-center gap-2">
@@ -65,12 +68,12 @@ export default function IndexPage() {
           <Animate animation="fade-in-up" className="text-center" delay={200}>
             <Button
               as={Link}
-              target="_blank"
               color="danger"
-              startContent={<IconFileCv />}
               href="https://drive.google.com/file/d/1J9eqBIZKGyW_sX6upgbHkXtYd9ccgf-d/view"
-              variant="flat"
               size="md"
+              startContent={<IconFileCv />}
+              target="_blank"
+              variant="flat"
             >
               Resume
             </Button>
@@ -88,8 +91,8 @@ export default function IndexPage() {
                 Experience
               </Button>
               <Button
-                size="md"
                 color="primary"
+                size="md"
                 startContent={<IconArrowDownRight size={14} />}
                 variant="flat"
                 onPress={() => scrollToSection("projects")}

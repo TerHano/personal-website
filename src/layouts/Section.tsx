@@ -1,5 +1,6 @@
 import { BlackWhiteGradientText } from "../components/black-white-gradient-text";
 import { useAppearOnScroll } from "../hooks/useAppearOnScroll";
+
 import { Group } from "./Group";
 
 export const Section = ({
@@ -22,7 +23,7 @@ export const Section = ({
       id={id}
       style={{ animationPlayState: shouldAppear ? "running" : "paused" }}
     >
-      <Group direction="vertical" className="gap-0 mb-2">
+      <Group className="gap-0 mb-2" direction="vertical">
         <BlackWhiteGradientText
           className="text-3xl font-bold text-center"
           label={label}

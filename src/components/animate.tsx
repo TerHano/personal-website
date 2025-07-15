@@ -17,7 +17,7 @@ export const Animate = ({
 }: AnimateProps) => {
   const isFadeAnimation = useMemo(
     () => animation.toLowerCase().includes("fade"),
-    [animation]
+    [animation],
   );
   const tsAnimation = useMemo(() => {
     switch (animation) {

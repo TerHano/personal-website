@@ -1,11 +1,12 @@
-import { BlackWhiteGradientText } from "./black-white-gradient-text";
 import { Group } from "../layouts/Group";
 import { Section } from "../layouts/Section";
 
+import { BlackWhiteGradientText } from "./black-white-gradient-text";
+
 export const EducationSection = () => {
   return (
-    <Section label="Education" id="education">
-      <Group direction="vertical" className="w-full max-w-lg">
+    <Section id="education" label="Education">
+      <Group className="w-full max-w-lg" direction="vertical">
         <Group className="flex text-sm sm:text-base justify-between">
           <BlackWhiteGradientText label="Rutgers University" />
           <BlackWhiteGradientText label="May 2019" />
