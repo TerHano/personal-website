@@ -91,7 +91,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    email: "terry.hanoman@outlook.com",
+    email: "hireme@terhano.com",
     github: "https://github.com/TerHano",
     linkedIn: "https://www.linkedin.com/in/terry-hanoman-90039b119/",
   },

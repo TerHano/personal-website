@@ -16,19 +16,6 @@ import { ThemeSwitch } from "@/components/theme-switch";
 export const Navbar = () => {
   return (
     <HeroUINavbar maxWidth="xl">
-      {/* <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand className="gap-3 max-w-fit">
-          <Link
-            className="flex justify-start items-center gap-1"
-            color="foreground"
-            href="/"
-          >
-            <IconFaceMask />
-            <p className="font-bold text-inherit">ACME</p>
-          </Link>
-        </NavbarBrand>
-      </NavbarContent> */}
-
       <NavbarContent justify="end">
         <NavbarItem>
           <Link isExternal href={`mailto:${siteConfig.links.email}`}>

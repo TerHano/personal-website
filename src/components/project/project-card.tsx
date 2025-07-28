@@ -4,13 +4,11 @@ import { Link } from "@heroui/link";
 import {
   Drawer,
   DrawerContent,
-  DrawerHeader,
   DrawerBody,
   DrawerFooter,
 } from "@heroui/drawer";
 import { useState } from "react";
 import { Button } from "@heroui/button";
-import { IconExternalLink } from "@tabler/icons-react";
 
 import { siteConfig } from "@/config/site";
 
@@ -48,8 +46,25 @@ export const ProjectCard = ({
         </CardFooter>
       </Card>
       <Drawer
+        hideCloseButton
         backdrop="blur"
         isOpen={isOpen}
+        motionProps={{
+          variants: {
+            enter: {
+              opacity: 1,
+              y: 0,
+              dur: 1,
+              // duration: 0.3,
+            },
+            exit: {
+              y: 100,
+              opacity: 0,
+              dur: 1,
+              //  duration: 0.3,
+            },
+          },
+        }}
         placement="bottom"
         radius="sm"
         onOpenChange={(open) => setIsOpen(open)}
@@ -57,11 +72,13 @@ export const ProjectCard = ({
         <DrawerContent>
           {(onClose) => (
             <>
-              <DrawerHeader className="flex flex-col gap-1">
+              {/* <DrawerHeader className="flex flex-col gap-1">
                 {name}
-              </DrawerHeader>
+              </DrawerHeader> */}
               <DrawerBody>
                 <div className="flex flex-col gap-4 justify-center items-center">
+                  <h2>{name}</h2>
+
                   <Image src={imageSrc} width={400} />
                   <p>{description}</p>
                 </div>
@@ -70,10 +87,12 @@ export const ProjectCard = ({
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
+
                 <Button
                   as={Link}
                   color="primary"
-                  endContent={<IconExternalLink />}
+                  showAnchorIcon
+                  //endContent={<IconExternalLink />}
                   href={link}
                   target="_blank"
                 >
