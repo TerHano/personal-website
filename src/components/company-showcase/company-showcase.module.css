@@ -1,8 +1,15 @@
 .companyContainer {
-    display: flex;
-    width: 100%;
-    max-width: 50rem;
-    overflow: hidden;
-    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%), linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
-    mask-composite: intersect;
+  display: flex;
+  width: 100%;
+  max-width: 50rem;
+  overflow: hidden;
+  mask-image:
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
+  mask-composite: intersect;
+}
+
+.companyContainer:hover :global(.animate-ticker),
+.companyContainer:focus-within :global(.animate-ticker) {
+  animation-play-state: paused;
 }

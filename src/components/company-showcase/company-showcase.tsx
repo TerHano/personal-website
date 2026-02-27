@@ -15,7 +15,11 @@ export const CompanyShowcase = () => {
       />
 
       <div className={styles.companyContainer}>
-        <div className="flex -mx-2 gap-8 animate-ticker items-center justify-evenly">
+        <div
+          aria-label="Company logos ticker"
+          className="flex -mx-2 gap-8 animate-ticker items-center justify-evenly"
+          tabIndex={0}
+        >
           <CompanyLogoImage imageSrc={High5GamesLogo} />
           <CompanyLogoImage imageSrc={PSEGLogo} />
           <CompanyLogoImage imageSrc={VisualLeaseLogo} />
@@ -34,7 +38,7 @@ export const CompanyLogoImage = ({ imageSrc }: { imageSrc: string }) => {
   return (
     <img
       alt="Company Logo"
-      className="dark:brightness-0 dark:invert max-w-40 brightness-100 invert-0"
+      className="dark:brightness-0 dark:invert max-w-40 brightness-100 invert-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
       src={imageSrc}
       style={{ transform: "translateZ(0)" }}
     />

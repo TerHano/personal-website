@@ -20,6 +20,7 @@ import { Button } from "@heroui/button";
 
 import { DiscordIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
+import { Magnetic } from "@/components/magnetic";
 
 type ProjectCardProps = (typeof siteConfig.projects)[0];
 
@@ -69,19 +70,18 @@ export const ProjectCard = ({
       <Card
         isFooterBlurred
         isPressable
-        // as={Button}
-        className="w-full h-[200px] col-span-1"
+        className="group w-full h-[220px] col-span-1 overflow-hidden border border-default-200/70 dark:border-default-100/15 transition-transform duration-300 ease-out hover:-translate-y-1"
         onClick={() => setIsOpen(true)}
       >
         <Image
           alt="Project Image"
-          className="z-0 w-full"
+          className="z-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           src={imageSrc ?? "https://heroui.com/images/card-example-5.jpeg"}
         />
-        <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+        <CardFooter className="absolute bg-black/45 backdrop-blur-md bottom-0 z-10 border-t-1 border-white/10 w-full">
           <div className="flex flex-grow gap-2 items-center truncate">
             <div className="flex flex-col text-start">
-              <p className="text-sm text-white/80">{name}</p>
+              <p className="text-sm font-semibold text-white/90">{name}</p>
               <p className="text-tiny  text-white/60">{description}</p>
             </div>
           </div>
@@ -91,11 +91,11 @@ export const ProjectCard = ({
         backdrop="blur"
         isOpen={isOpen}
         placement="center"
-        size="2xl"
         scrollBehavior="inside"
+        size="2xl"
         onOpenChange={(open) => setIsOpen(open)}
       >
-        <ModalContent>
+        <ModalContent className="border border-default-200/70 dark:border-default-100/20">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">{name}</ModalHeader>
@@ -118,7 +118,7 @@ export const ProjectCard = ({
                     </p>
                   ) : null}
                   {technologies?.length ? (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {technologies.map((technology) => (
                         <Chip
                           key={technology}
@@ -135,20 +135,24 @@ export const ProjectCard = ({
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
+                <Magnetic strength={10}>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                </Magnetic>
 
-                <Button
-                  as={Link}
-                  color="primary"
-                  showAnchorIcon
-                  //endContent={<IconExternalLink />}
-                  href={link}
-                  target="_blank"
-                >
-                  Visit
-                </Button>
+                <Magnetic strength={10}>
+                  <Button
+                    showAnchorIcon
+                    as={Link}
+                    color="primary"
+                    //endContent={<IconExternalLink />}
+                    href={link}
+                    target="_blank"
+                  >
+                    Visit
+                  </Button>
+                </Magnetic>
               </ModalFooter>
             </>
           )}

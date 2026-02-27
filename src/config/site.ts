@@ -9,6 +9,14 @@ export const siteConfig = {
       href: "/",
     },
   ],
+  education: [
+    {
+      school: "Rutgers University",
+      degree: "B.S in Computer Science",
+      graduationDate: "May 2019",
+      location: "New Brunswick, NJ",
+    },
+  ],
   experience: [
     {
       jobTitle: "Software Engineer III",
@@ -99,7 +107,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    email: "hireme@terhano.com",
+    email: "terry.hanoman@outlook.com",
     github: "https://github.com/TerHano",
     linkedIn: "https://www.linkedin.com/in/terry-hanoman-90039b119/",
   },
