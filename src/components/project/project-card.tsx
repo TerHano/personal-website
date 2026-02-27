@@ -1,24 +1,66 @@
 import { Card, CardFooter } from "@heroui/card";
+import { Chip } from "@heroui/chip";
 import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
 import {
-  Drawer,
-  DrawerContent,
-  DrawerBody,
-  DrawerFooter,
-} from "@heroui/drawer";
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { useState } from "react";
+import {
+  IconBrandReact,
+  IconClock,
+  IconLock,
+  IconServer,
+} from "@tabler/icons-react";
 import { Button } from "@heroui/button";
 
+import { DiscordIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 
 type ProjectCardProps = (typeof siteConfig.projects)[0];
+
+const technologyColorMap: Record<
+  string,
+  "default" | "primary" | "secondary" | "success" | "warning" | "danger"
+> = {
+  React: "primary",
+  SignalR: "secondary",
+  ".NET": "success",
+  Quartz: "warning",
+  "Discord Webhooks": "secondary",
+  "JWT Auth": "danger",
+};
+
+const getTechnologyIcon = (technology: string) => {
+  switch (technology) {
+    case "React":
+      return <IconBrandReact size={14} />;
+    case "SignalR":
+      return <IconServer size={14} />;
+    case ".NET":
+      return <IconServer size={14} />;
+    case "Quartz":
+      return <IconClock size={14} />;
+    case "Discord Webhooks":
+      return <DiscordIcon size={14} />;
+    case "JWT Auth":
+      return <IconLock size={14} />;
+    default:
+      return <IconServer size={14} />;
+  }
+};
 
 export const ProjectCard = ({
   name,
   imageSrc,
   link,
   description,
+  subDescription,
+  technologies,
 }: ProjectCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,45 +87,54 @@ export const ProjectCard = ({
           </div>
         </CardFooter>
       </Card>
-      <Drawer
-        hideCloseButton
+      <Modal
         backdrop="blur"
         isOpen={isOpen}
-        motionProps={{
-          variants: {
-            enter: {
-              opacity: 1,
-              y: 0,
-              dur: 1,
-              // duration: 0.3,
-            },
-            exit: {
-              y: 100,
-              opacity: 0,
-              dur: 1,
-              //  duration: 0.3,
-            },
-          },
-        }}
-        placement="bottom"
-        radius="sm"
+        placement="center"
+        size="2xl"
+        scrollBehavior="inside"
         onOpenChange={(open) => setIsOpen(open)}
       >
-        <DrawerContent>
+        <ModalContent>
           {(onClose) => (
             <>
-              {/* <DrawerHeader className="flex flex-col gap-1">
-                {name}
-              </DrawerHeader> */}
-              <DrawerBody>
-                <div className="flex flex-col gap-4 justify-center items-center">
-                  <h2>{name}</h2>
-
-                  <Image src={imageSrc} width={400} />
-                  <p>{description}</p>
+              <ModalHeader className="flex flex-col gap-1">{name}</ModalHeader>
+              <ModalBody>
+                <div className="flex flex-col gap-4">
+                  <div className="flex justify-center">
+                    <Image
+                      alt={`${name} preview`}
+                      className="max-w-md"
+                      src={imageSrc}
+                      width={420}
+                    />
+                  </div>
+                  <p className="text-sm leading-relaxed text-default-800 text-center">
+                    {description}
+                  </p>
+                  {subDescription ? (
+                    <p className="text-sm leading-relaxed text-default-500 text-center">
+                      {subDescription}
+                    </p>
+                  ) : null}
+                  {technologies?.length ? (
+                    <div className="flex flex-wrap gap-2">
+                      {technologies.map((technology) => (
+                        <Chip
+                          key={technology}
+                          color={technologyColorMap[technology] ?? "default"}
+                          size="sm"
+                          startContent={getTechnologyIcon(technology)}
+                          variant="flat"
+                        >
+                          {technology}
+                        </Chip>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
-              </DrawerBody>
-              <DrawerFooter>
+              </ModalBody>
+              <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
@@ -98,11 +149,11 @@ export const ProjectCard = ({
                 >
                   Visit
                 </Button>
-              </DrawerFooter>
+              </ModalFooter>
             </>
           )}
-        </DrawerContent>
-      </Drawer>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

@@ -15,7 +15,14 @@ export const ProjectSection = () => {
     >
       <div className="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 md:grid-cols-3">
         {projects.map(
-          ({ name, description, subDescription, imageSrc, link }) => (
+          ({
+            name,
+            description,
+            subDescription,
+            technologies,
+            imageSrc,
+            link,
+          }) => (
             <ProjectCard
               key={name}
               description={description}
@@ -23,6 +30,7 @@ export const ProjectSection = () => {
               link={link}
               name={name}
               subDescription={subDescription}
+              technologies={technologies}
             />
           ),
         )}
