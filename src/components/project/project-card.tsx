@@ -1,24 +1,67 @@
 import { Card, CardFooter } from "@heroui/card";
+import { Chip } from "@heroui/chip";
 import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
 import {
-  Drawer,
-  DrawerContent,
-  DrawerBody,
-  DrawerFooter,
-} from "@heroui/drawer";
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 import { useState } from "react";
+import {
+  IconBrandReact,
+  IconClock,
+  IconLock,
+  IconServer,
+} from "@tabler/icons-react";
 import { Button } from "@heroui/button";
 
+import { DiscordIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
+import { Magnetic } from "@/components/magnetic";
 
 type ProjectCardProps = (typeof siteConfig.projects)[0];
+
+const technologyColorMap: Record<
+  string,
+  "default" | "primary" | "secondary" | "success" | "warning" | "danger"
+> = {
+  React: "primary",
+  SignalR: "secondary",
+  ".NET": "success",
+  Quartz: "warning",
+  "Discord Webhooks": "secondary",
+  "JWT Auth": "danger",
+};
+
+const getTechnologyIcon = (technology: string) => {
+  switch (technology) {
+    case "React":
+      return <IconBrandReact size={14} />;
+    case "SignalR":
+      return <IconServer size={14} />;
+    case ".NET":
+      return <IconServer size={14} />;
+    case "Quartz":
+      return <IconClock size={14} />;
+    case "Discord Webhooks":
+      return <DiscordIcon size={14} />;
+    case "JWT Auth":
+      return <IconLock size={14} />;
+    default:
+      return <IconServer size={14} />;
+  }
+};
 
 export const ProjectCard = ({
   name,
   imageSrc,
   link,
   description,
+  subDescription,
+  technologies,
 }: ProjectCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,82 +70,94 @@ export const ProjectCard = ({
       <Card
         isFooterBlurred
         isPressable
-        // as={Button}
-        className="w-full h-[200px] col-span-1"
+        className="group w-full h-[220px] col-span-1 overflow-hidden border border-default-300/80 dark:border-default-100/35 ring-1 ring-default-300/45 dark:ring-default-100/25 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:ring-primary-300/55"
         onClick={() => setIsOpen(true)}
       >
         <Image
           alt="Project Image"
-          className="z-0 w-full"
+          className="z-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           src={imageSrc ?? "https://heroui.com/images/card-example-5.jpeg"}
         />
-        <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+        <CardFooter className="absolute bg-black/45 backdrop-blur-md bottom-0 z-10 border-t-1 border-white/10 w-full">
           <div className="flex flex-grow gap-2 items-center truncate">
             <div className="flex flex-col text-start">
-              <p className="text-sm text-white/80">{name}</p>
+              <p className="text-sm font-semibold text-white/90">{name}</p>
               <p className="text-tiny  text-white/60">{description}</p>
             </div>
           </div>
         </CardFooter>
       </Card>
-      <Drawer
-        hideCloseButton
+      <Modal
         backdrop="blur"
         isOpen={isOpen}
-        motionProps={{
-          variants: {
-            enter: {
-              opacity: 1,
-              y: 0,
-              dur: 1,
-              // duration: 0.3,
-            },
-            exit: {
-              y: 100,
-              opacity: 0,
-              dur: 1,
-              //  duration: 0.3,
-            },
-          },
-        }}
-        placement="bottom"
-        radius="sm"
+        placement="center"
+        scrollBehavior="inside"
+        size="2xl"
         onOpenChange={(open) => setIsOpen(open)}
       >
-        <DrawerContent>
+        <ModalContent className="border border-default-200/70 dark:border-default-100/20">
           {(onClose) => (
             <>
-              {/* <DrawerHeader className="flex flex-col gap-1">
-                {name}
-              </DrawerHeader> */}
-              <DrawerBody>
-                <div className="flex flex-col gap-4 justify-center items-center">
-                  <h2>{name}</h2>
-
-                  <Image src={imageSrc} width={400} />
-                  <p>{description}</p>
+              <ModalHeader className="flex flex-col gap-1">{name}</ModalHeader>
+              <ModalBody>
+                <div className="flex flex-col gap-4">
+                  <div className="flex justify-center">
+                    <Image
+                      alt={`${name} preview`}
+                      className="max-w-md"
+                      src={imageSrc}
+                      width={420}
+                    />
+                  </div>
+                  <p className="text-sm leading-relaxed text-default-800 text-center">
+                    {description}
+                  </p>
+                  {subDescription ? (
+                    <p className="text-sm leading-relaxed text-default-500 text-center">
+                      {subDescription}
+                    </p>
+                  ) : null}
+                  {technologies?.length ? (
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {technologies.map((technology) => (
+                        <Chip
+                          key={technology}
+                          color={technologyColorMap[technology] ?? "default"}
+                          size="sm"
+                          startContent={getTechnologyIcon(technology)}
+                          variant="flat"
+                        >
+                          {technology}
+                        </Chip>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
-              </DrawerBody>
-              <DrawerFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
+              </ModalBody>
+              <ModalFooter>
+                <Magnetic strength={10}>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                </Magnetic>
 
-                <Button
-                  as={Link}
-                  color="primary"
-                  showAnchorIcon
-                  //endContent={<IconExternalLink />}
-                  href={link}
-                  target="_blank"
-                >
-                  Visit
-                </Button>
-              </DrawerFooter>
+                <Magnetic strength={10}>
+                  <Button
+                    showAnchorIcon
+                    as={Link}
+                    color="primary"
+                    //endContent={<IconExternalLink />}
+                    href={link}
+                    target="_blank"
+                  >
+                    Visit
+                  </Button>
+                </Magnetic>
+              </ModalFooter>
             </>
           )}
-        </DrawerContent>
-      </Drawer>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

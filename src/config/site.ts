@@ -9,6 +9,14 @@ export const siteConfig = {
       href: "/",
     },
   ],
+  education: [
+    {
+      school: "Rutgers University",
+      degree: "B.S in Computer Science",
+      graduationDate: "May 2019",
+      location: "New Brunswick, NJ",
+    },
+  ],
   experience: [
     {
       jobTitle: "Software Engineer III",
@@ -67,8 +75,11 @@ export const siteConfig = {
   projects: [
     {
       name: "Werewolf Party",
-      description: "Cards for a party game full of lies, deceit, & accusations",
-      subDescription: "Join friends and family for a thrilling experience.",
+      description:
+        "A social deduction party game where every card sparks strategy and suspense",
+      subDescription:
+        "Play with friends and family in a fast-paced experience built around bluffing, accusations, and teamwork.",
+      technologies: ["React", "SignalR", ".NET"],
       imageSrc: "https://werewolfparty.terhano.com/rich-preview.png",
       link: "https://werewolfparty.terhano.com",
     },
@@ -76,22 +87,27 @@ export const siteConfig = {
       name: "Car Theater",
       imageSrc:
         "https://images.unsplash.com/photo-1553260188-75a8d6205b6c?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      description: "Full Screen Media Apps In Your Tesla",
+      description:
+        "A full-screen media hub designed for an immersive in-car experience",
       link: "https://cartheater.terhano.com",
-      subDescription: "Watch movies, listen to music, and more.",
+      subDescription:
+        "Enjoy movies, music, and entertainment in a streamlined interface optimized for Tesla displays.",
+      technologies: ["React"],
     },
     {
       name: "EntryAlert",
       imageSrc:
         "https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      description: "Global Entry Interview Tracker and Alert System",
+      description:
+        "A tracker and alert platform for faster Global Entry interview scheduling",
       link: "https://entryalert.terhano.com",
       subDescription:
-        "Track your Global Entry interview status and get alerts.",
+        "Monitor appointment openings in real time and get notified when interview slots become available.",
+      technologies: ["React", ".NET", "Quartz", "Discord Webhooks", "JWT Auth"],
     },
   ],
   links: {
-    email: "hireme@terhano.com",
+    email: "terry.hanoman@outlook.com",
     github: "https://github.com/TerHano",
     linkedIn: "https://www.linkedin.com/in/terry-hanoman-90039b119/",
   },
