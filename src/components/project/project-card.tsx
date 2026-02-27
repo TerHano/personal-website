@@ -70,7 +70,7 @@ export const ProjectCard = ({
       <Card
         isFooterBlurred
         isPressable
-        className="group w-full h-[220px] col-span-1 overflow-hidden border border-default-200/70 dark:border-default-100/15 transition-transform duration-300 ease-out hover:-translate-y-1"
+        className="group w-full h-[220px] col-span-1 overflow-hidden border border-default-300/80 dark:border-default-100/35 ring-1 ring-default-300/45 dark:ring-default-100/25 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:ring-primary-300/55"
         onClick={() => setIsOpen(true)}
       >
         <Image

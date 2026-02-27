@@ -38,7 +38,7 @@ export default function IndexPage() {
         direction="vertical"
       >
         <Group
-          className="relative isolate items-center justify-center gap-3 mx-4 sm:mx-8 rounded-3xl px-4 py-6 sm:px-10 sm:py-10 overflow-hidden"
+          className="relative isolate items-center justify-center gap-3 mx-4 sm:mx-8 rounded-3xl border border-default-200/60 dark:border-default-100/15 bg-default-100/35 dark:bg-default-100/5 backdrop-blur-sm shadow-sm px-4 py-6 sm:px-10 sm:py-10 overflow-hidden"
           direction="vertical"
         >
           <div className="absolute -top-20 -left-14 h-44 w-44 rounded-full bg-primary-300/20 blur-3xl" />
@@ -77,8 +77,8 @@ export default function IndexPage() {
             <Magnetic>
               <Button
                 as={Link}
-                color="danger"
                 className="font-semibold"
+                color="danger"
                 href="https://drive.google.com/file/d/1J9eqBIZKGyW_sX6upgbHkXtYd9ccgf-d/view"
                 size="md"
                 startContent={<IconFileCv />}
@@ -94,8 +94,8 @@ export default function IndexPage() {
             <Group className="items-center gap-2">
               <Magnetic>
                 <Button
-                  color="warning"
                   className="font-medium"
+                  color="warning"
                   size="md"
                   startContent={<IconBriefcase size={14} />}
                   variant="flat"
@@ -106,8 +106,8 @@ export default function IndexPage() {
               </Magnetic>
               <Magnetic>
                 <Button
-                  color="primary"
                   className="font-medium"
+                  color="primary"
                   size="md"
                   startContent={<IconArrowDownRight size={14} />}
                   variant="flat"

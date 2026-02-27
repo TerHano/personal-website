@@ -21,7 +21,7 @@ export const EducationSection = () => {
             onView
           >
             <Group
-              className="w-full max-w-2xl mx-auto rounded-2xl border border-default-200/70 dark:border-default-100/20 bg-default-100/50 dark:bg-default-100/10 backdrop-blur-md p-5 sm:p-6 gap-4"
+              className="w-full max-w-2xl mx-auto rounded-2xl border border-default-300/80 dark:border-default-100/35 bg-default-100/50 dark:bg-default-100/10 backdrop-blur-md p-5 sm:p-6 gap-4"
               direction="vertical"
             >
               <Group className="items-center gap-2 text-default-600" fullWidth>
