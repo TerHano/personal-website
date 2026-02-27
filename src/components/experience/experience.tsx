@@ -1,8 +1,9 @@
+import { Card, CardBody } from "@heroui/card";
+
 import { BlackWhiteGradientText } from "../black-white-gradient-text";
 import { Group } from "../../layouts/Group";
 
 import { siteConfig } from "@/config/site";
-import { Card, CardBody } from "@heroui/card";
 
 type ExperienceProps = (typeof siteConfig.experience)[0];
 
@@ -26,15 +27,15 @@ export const Experience = ({
     : "Current";
 
   return (
-    <div className="relative pl-6 sm:pl-8">
-      <span className="absolute left-[3px] sm:left-[7px] top-6 h-3 w-3 rounded-full bg-black dark:bg-white ring-2 ring-background" />
+    <div className="relative pl-0 sm:pl-8">
+      <span className="hidden sm:block absolute left-[3px] sm:left-[7px] top-6 h-3 w-3 rounded-full bg-black dark:bg-white ring-2 ring-background" />
 
       <Card
-        className="border border-default-200/70 bg-content1/80 shadow-sm transition-shadow duration-200 hover:shadow-md"
+        className="border border-default-200/65 dark:border-default-100/20 ring-1 ring-default-200/35 dark:ring-default-100/15 bg-default-100/70 dark:bg-default-100/15 backdrop-blur-md shadow-lg transition-all duration-250 hover:-translate-y-0.5 hover:shadow-xl"
         radius="sm"
       >
         <CardBody className="p-4 sm:p-6">
-          <Group className="gap-4 sm:gap-5" fullWidth direction="vertical">
+          <Group fullWidth className="gap-4 sm:gap-5" direction="vertical">
             <Group
               className="justify-between items-start gap-3 sm:gap-4 flex-wrap"
               direction="horizontal"

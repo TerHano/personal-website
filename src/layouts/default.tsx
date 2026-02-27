@@ -15,7 +15,7 @@ export default function DefaultLayout({
         <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-secondary-300/10 blur-3xl" />
       </div>
       <Navbar />
-      <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
+      <main className="container mx-auto max-w-7xl px-3 sm:px-6 flex-grow pt-16">
         {children}
       </main>
     </div>

@@ -16,7 +16,7 @@ export const Section = ({
 }) => {
   return (
     <section
-      className="relative flex flex-col items-center gap-2 justify-center px-6 py-8 sm:py-10 w-full sm:items-center rounded-3xl border border-default-200/60 dark:border-default-100/10 bg-default-100/30 dark:bg-default-100/5 backdrop-blur-sm overflow-hidden"
+      className="relative flex flex-col items-center gap-2 justify-center px-3 sm:px-6 py-8 sm:py-10 w-full sm:items-center rounded-3xl border border-default-200/60 dark:border-default-100/10 bg-default-100/30 dark:bg-default-100/5 backdrop-blur-sm overflow-hidden"
       id={id}
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
