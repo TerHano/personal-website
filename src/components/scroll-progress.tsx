@@ -30,9 +30,9 @@ export const ScrollProgress = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-1 pointer-events-none z-50">
+    <div className="pointer-events-none fixed left-0 top-0 z-50 h-px w-full">
       <div
-        className="h-full bg-gradient-to-r from-primary-500 via-secondary-500 to-warning-500 origin-left transition-transform duration-100"
+        className="h-full origin-left bg-teal transition-transform duration-100"
         style={{ transform: `scaleX(${progress})` }}
       />
     </div>

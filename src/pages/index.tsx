@@ -1,131 +1,106 @@
-import { Avatar } from "@heroui/avatar";
 import { Button } from "@heroui/button";
-import {
-  IconArrowDownRight,
-  IconBriefcase,
-  IconFileCv,
-} from "@tabler/icons-react";
 import { Link } from "@heroui/link";
-import { useCallback } from "react";
-import { Divider } from "@heroui/divider";
+import { IconArrowDownRight, IconFileCv } from "@tabler/icons-react";
 
 import SelfImage from "@/assets/self-photo.jpeg";
 import { CompanyShowcase } from "@/components/company-showcase/company-showcase";
 import DefaultLayout from "@/layouts/default";
-import { BlackWhiteGradientText } from "@/components/black-white-gradient-text";
 import { Animate } from "@/components/animate";
 import { ProjectSection } from "@/components/project/project-section";
 import { ExperienceSection } from "@/components/experience/experience-section";
-import { Group } from "@/layouts/Group";
 import { EducationSection } from "@/components/education-section";
+import { ToolkitSection } from "@/components/toolkit-section";
+import { Display, Eyebrow } from "@/components/typography";
 import { Magnetic } from "@/components/magnetic";
+import { siteConfig } from "@/config/site";
 
 export default function IndexPage() {
-  const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId);
-
-    if (element) {
-      const y = element.getBoundingClientRect().top + window.scrollY - 60;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  }, []);
-
   return (
     <DefaultLayout>
-      <Group
-        className="items-center justify-center gap-10 pb-28"
-        direction="vertical"
-      >
-        <Group
-          className="relative isolate items-center justify-center gap-3 mx-4 sm:mx-8 rounded-3xl border border-default-200/60 dark:border-default-100/15 bg-default-100/35 dark:bg-default-100/5 backdrop-blur-sm shadow-sm px-4 py-6 sm:px-10 sm:py-10 overflow-hidden"
-          direction="vertical"
-        >
-          <div className="absolute -top-20 -left-14 h-44 w-44 rounded-full bg-primary-300/20 blur-3xl" />
-          <div className="absolute -bottom-24 -right-10 h-52 w-52 rounded-full bg-warning-300/20 blur-3xl" />
-
-          <Animate
-            animation="scale-in"
-            className="flex flex-col items-center gap-2"
-          >
-            <Avatar
-              isBordered
-              className="w-20 h-20 animate-float"
-              color="default"
-              radius="lg"
-              src={SelfImage}
-            />
-            <div className="flex items-center gap-2 rounded-full border border-default-200/80 dark:border-default-100/20 bg-default-100/40 dark:bg-default-100/10 px-3 py-1 backdrop-blur-sm">
-              <BlackWhiteGradientText
-                className="font-bold text-sm"
-                label="Hey, I'm Terry Hanoman"
+      <div className="flex flex-col gap-16 pb-20 sm:gap-24">
+        <header className="flex flex-col gap-6 pt-6 sm:pt-10">
+          <Animate animation="fade-in" className="flex flex-col gap-5">
+            <div className="flex items-center gap-4">
+              <img
+                alt="Terry Hanoman"
+                className="h-14 w-14 rounded-sm border border-rule object-cover grayscale-[0.15]"
+                src={SelfImage}
               />
-              <span className="text-sm">👋</span>
+              <div className="flex flex-col">
+                <Eyebrow>
+                  {siteConfig.role} · {siteConfig.company}
+                </Eyebrow>
+                <Eyebrow tone="muted">{siteConfig.location}</Eyebrow>
+              </div>
             </div>
-          </Animate>
-          <Animate
-            animation="fade-in-up"
-            className="text-center max-w-4xl"
-            delay={200}
-          >
-            <BlackWhiteGradientText
-              className="font-bold text-2xl sm:text-3xl md:text-5xl leading-tight"
-              label="An Experienced Software Engineer and Developer with a Passion for Building Innovative Solutions"
-            />
-          </Animate>
-          <Animate animation="fade-in" className="text-center" delay={350}>
-            <Magnetic>
-              <Button
-                as={Link}
-                className="font-semibold"
-                color="danger"
-                href="https://drive.google.com/file/d/1J9eqBIZKGyW_sX6upgbHkXtYd9ccgf-d/view"
-                size="md"
-                startContent={<IconFileCv />}
-                target="_blank"
-                variant="flat"
-              >
-                Resume
-              </Button>
-            </Magnetic>
+
+            <Display
+              as="h1"
+              className="text-[clamp(2.75rem,8.5vw,4.75rem)] leading-[0.98] tracking-[-0.03em]"
+            >
+              {siteConfig.name}
+            </Display>
           </Animate>
 
-          <Animate animation="fade-in-up" delay={500}>
-            <Group className="items-center gap-2">
-              <Magnetic>
+          <Animate animation="fade-in-up" delay={150}>
+            <p className="max-w-[64ch] font-display text-[clamp(1.0625rem,2.3vw,1.3125rem)] leading-[1.55] text-ink-soft text-pretty">
+              Software engineer with <span className="mark">4+ years</span>{" "}
+              building React and Angular applications backed by .NET, Java, and
+              cloud APIs, with recent focus on AI-powered document processing
+              using AWS Bedrock and Textract. I lead UI modernization work,
+              build reusable component libraries, and integrate third-party data
+              platforms to automate real estate and lease management workflows.
+            </p>
+          </Animate>
+
+          <Animate animation="fade-in-up" delay={300}>
+            <div className="flex flex-wrap items-center gap-2.5">
+              <Magnetic strength={10}>
                 <Button
-                  className="font-medium"
-                  color="warning"
+                  as={Link}
+                  className="rounded-sm border border-teal bg-teal-soft font-mono text-xs text-teal"
+                  href={`mailto:${siteConfig.links.email}`}
                   size="md"
-                  startContent={<IconBriefcase size={14} />}
                   variant="flat"
-                  onPress={() => scrollToSection("experience")}
                 >
-                  Experience
+                  {siteConfig.links.email}
                 </Button>
               </Magnetic>
-              <Magnetic>
+              <Magnetic strength={10}>
                 <Button
-                  className="font-medium"
-                  color="primary"
+                  as={Link}
+                  className="rounded-sm border border-rule bg-raised font-mono text-xs text-ink-soft"
+                  href={siteConfig.resumeUrl}
                   size="md"
-                  startContent={<IconArrowDownRight size={14} />}
+                  startContent={<IconFileCv size={15} />}
+                  target="_blank"
                   variant="flat"
-                  onPress={() => scrollToSection("projects")}
+                >
+                  Résumé PDF
+                </Button>
+              </Magnetic>
+              <Magnetic strength={10}>
+                <Button
+                  as={Link}
+                  className="rounded-sm border border-rule bg-raised font-mono text-xs text-ink-soft"
+                  href="#projects"
+                  size="md"
+                  startContent={<IconArrowDownRight size={15} />}
+                  variant="flat"
                 >
                   Projects
                 </Button>
               </Magnetic>
-            </Group>
+            </div>
           </Animate>
-        </Group>
+        </header>
+
         <CompanyShowcase />
-        <EducationSection />
-        <Divider className="w-11/12" />
-        <ExperienceSection />
-        <Divider className="w-11/12" />
         <ProjectSection />
-      </Group>
+        <ExperienceSection />
+        <EducationSection />
+        <ToolkitSection />
+      </div>
     </DefaultLayout>
   );
 }

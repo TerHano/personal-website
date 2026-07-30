@@ -1,3 +1,90 @@
 @import "tailwindcss";
 
-@config "../../tailwind.config.js"
+@import "@fontsource-variable/newsreader";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+@config "../../tailwind.config.js";
+
+/*
+  Design tokens. Light is the default; the theme switch puts `.dark` on <html>,
+  so every token is redefined once under `.dark` and components only ever read
+  the variable — never a hard-coded colour.
+*/
+:root {
+  --paper: #f6f8f7;
+  --raised: #ffffff;
+  --ink: #151a1c;
+  --ink-soft: #3c4a4c;
+  --muted: #5f6f71;
+  --rule: #d3ddda;
+  --rule-faint: #e6ece9;
+  --teal: #0f6b63;
+  --teal-soft: #e4efec;
+  --mark: rgba(212, 227, 74, 0.5);
+  --mark-edge: #a8b62e;
+}
+
+.dark {
+  --paper: #0e1213;
+  --raised: #151b1c;
+  --ink: #e8efec;
+  --ink-soft: #bcc9c6;
+  --muted: #8b9c99;
+  --rule: #26302f;
+  --rule-faint: #1d2626;
+  --teal: #5ec6b4;
+  --teal-soft: #16211f;
+  --mark: rgba(212, 227, 74, 0.2);
+  --mark-edge: #b6c63c;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Newsreader is an optical-size variable face; keep display sizes tight. */
+.font-display {
+  font-family: "Newsreader Variable", Newsreader, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-optical-sizing: auto;
+}
+
+/* The one flourish carried over from the résumé: an extraction highlight. */
+.mark {
+  background: var(--mark);
+  box-shadow: inset 0 0 0 1px var(--mark-edge);
+  padding: 0.05em 0.18em;
+  margin: 0 -0.18em;
+  border-radius: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

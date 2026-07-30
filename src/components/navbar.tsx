@@ -1,6 +1,7 @@
 import { Link } from "@heroui/link";
 import {
   Navbar as HeroUINavbar,
+  NavbarBrand,
   NavbarContent,
   NavbarItem,
 } from "@heroui/navbar";
@@ -14,6 +15,12 @@ import {
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Magnetic } from "@/components/magnetic";
+
+const sections = [
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Toolkit", href: "#toolkit" },
+];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,22 +38,45 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar
-      className={`transition-all duration-300 border-b ${
+      className={`border-b transition-colors duration-300 ${
         isScrolled
-          ? "bg-default-100/65 dark:bg-default-100/10 backdrop-blur-xl border-default-200/70 dark:border-default-100/20"
-          : "bg-transparent border-transparent"
+          ? "border-rule bg-paper/85 backdrop-blur-xl"
+          : "border-transparent bg-transparent"
       }`}
-      maxWidth="xl"
+      maxWidth="lg"
     >
+      <NavbarBrand>
+        <a
+          className="font-mono text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-teal"
+          href="#top"
+        >
+          {siteConfig.name}
+        </a>
+      </NavbarBrand>
+
+      <NavbarContent className="hidden gap-6 sm:flex" justify="center">
+        {sections.map((section) => (
+          <NavbarItem key={section.href}>
+            <a
+              className="font-mono text-xs text-muted transition-colors hover:text-teal"
+              href={section.href}
+            >
+              {section.label}
+            </a>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
+
       <NavbarContent justify="end">
         <NavbarItem>
           <Magnetic strength={10}>
             <Link
               isExternal
-              className="transition-transform duration-200 hover:-translate-y-0.5"
+              aria-label="Email Terry"
+              className="text-muted transition-colors hover:text-teal"
               href={`mailto:${siteConfig.links.email}`}
             >
-              <IconMailbox className="text-default-500" />
+              <IconMailbox size={20} />
             </Link>
           </Magnetic>
         </NavbarItem>
@@ -54,10 +84,11 @@ export const Navbar = () => {
           <Magnetic strength={10}>
             <Link
               isExternal
-              className="transition-transform duration-200 hover:-translate-y-0.5"
+              aria-label="LinkedIn"
+              className="text-muted transition-colors hover:text-teal"
               href={siteConfig.links.linkedIn}
             >
-              <IconBrandLinkedin className="text-default-500" />
+              <IconBrandLinkedin size={20} />
             </Link>
           </Magnetic>
         </NavbarItem>
@@ -65,11 +96,11 @@ export const Navbar = () => {
           <Magnetic strength={10}>
             <Link
               isExternal
-              className="transition-transform duration-200 hover:-translate-y-0.5"
+              aria-label="GitHub"
+              className="text-muted transition-colors hover:text-teal"
               href={siteConfig.links.github}
-              title="GitHub"
             >
-              <IconBrandGithub className="text-default-500" />
+              <IconBrandGithub size={20} />
             </Link>
           </Magnetic>
         </NavbarItem>
