@@ -1,3 +1,6 @@
+import CarTheaterPreview from "@/assets/images/projects/car_theater.png";
+import EntryAlertPreview from "@/assets/images/projects/entryalert.png";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -94,8 +97,7 @@ export const siteConfig = {
     },
     {
       name: "Car Theater",
-      imageSrc:
-        "https://images.unsplash.com/photo-1553260188-75a8d6205b6c?q=80&w=720&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageSrc: CarTheaterPreview,
       description:
         "A full-screen media hub designed for an immersive in-car experience",
       link: "https://cartheater.terhano.com",
@@ -105,8 +107,7 @@ export const siteConfig = {
     },
     {
       name: "EntryAlert",
-      imageSrc:
-        "https://images.unsplash.com/photo-1517400508447-f8dd518b86db?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      imageSrc: EntryAlertPreview,
       description:
         "A tracker and alert platform for faster Global Entry interview scheduling",
       link: "https://entryalert.terhano.com",
