@@ -21,8 +21,6 @@
   --rule-faint: #e6ece9;
   --teal: #0f6b63;
   --teal-soft: #e4efec;
-  --mark: rgba(212, 227, 74, 0.5);
-  --mark-edge: #a8b62e;
 }
 
 .dark {
@@ -35,8 +33,6 @@
   --rule-faint: #1d2626;
   --teal: #5ec6b4;
   --teal-soft: #16211f;
-  --mark: rgba(212, 227, 74, 0.2);
-  --mark-edge: #b6c63c;
 }
 
 html {
@@ -58,15 +54,6 @@ body {
   font-weight: 400;
   letter-spacing: -0.02em;
   font-optical-sizing: auto;
-}
-
-/* The one flourish carried over from the résumé: an extraction highlight. */
-.mark {
-  background: var(--mark);
-  box-shadow: inset 0 0 0 1px var(--mark-edge);
-  padding: 0.05em 0.18em;
-  margin: 0 -0.18em;
-  border-radius: 2px;
 }
 
 :focus-visible {

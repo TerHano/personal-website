@@ -44,12 +44,12 @@ export default function IndexPage() {
 
           <Animate animation="fade-in-up" delay={150}>
             <p className="max-w-[64ch] font-display text-[clamp(1.0625rem,2.3vw,1.3125rem)] leading-[1.55] text-ink-soft text-pretty">
-              Software engineer with <span className="mark">4+ years</span>{" "}
-              building React and Angular applications backed by .NET, Java, and
-              cloud APIs, with recent focus on AI-powered document processing
-              using AWS Bedrock and Textract. I lead UI modernization work,
-              build reusable component libraries, and integrate third-party data
-              platforms to automate real estate and lease management workflows.
+              Software engineer with 4+ years building React and Angular
+              applications backed by .NET, Java, and cloud APIs, with recent
+              focus on AI-powered document processing using AWS Bedrock and
+              Textract. I lead UI modernization work, build reusable component
+              libraries, and integrate third-party data platforms to automate
+              real estate and lease management workflows.
             </p>
           </Animate>
 
