@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { siteConfig } from "@/config/site";
 
 export default function DefaultLayout({
   children,
@@ -7,17 +8,31 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex flex-col min-h-screen overflow-x-hidden">
+    <div className="relative flex min-h-screen flex-col overflow-x-hidden bg-paper">
       <ScrollProgress />
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-primary-300/15 blur-3xl" />
-        <div className="absolute top-1/3 -left-24 h-72 w-72 rounded-full bg-warning-300/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-secondary-300/10 blur-3xl" />
-      </div>
       <Navbar />
-      <main className="container mx-auto max-w-7xl px-3 sm:px-6 flex-grow pt-16">
+      <main className="container mx-auto w-full max-w-5xl flex-grow px-5 pt-16 sm:px-8">
         {children}
       </main>
+      <footer className="container mx-auto w-full max-w-5xl px-5 pb-12 sm:px-8">
+        <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-rule pt-5 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-muted">
+          <a
+            className="text-ink-soft transition-colors hover:text-teal"
+            href={`mailto:${siteConfig.links.email}`}
+          >
+            {siteConfig.links.email}
+          </a>
+          <a
+            className="text-ink-soft transition-colors hover:text-teal"
+            href={siteConfig.links.github}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            github.com/TerHano
+          </a>
+          <span>{siteConfig.location}</span>
+        </div>
+      </footer>
     </div>
   );
 }

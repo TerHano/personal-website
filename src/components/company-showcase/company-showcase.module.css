@@ -13,3 +13,9 @@
 .companyContainer:focus-within :global(.animate-ticker) {
   animation-play-state: paused;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .companyContainer :global(.animate-ticker) {
+    animation: none;
+  }
+}

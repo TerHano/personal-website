@@ -1,11 +1,10 @@
-import { Card, CardBody } from "@heroui/card";
-
-import { BlackWhiteGradientText } from "../black-white-gradient-text";
-import { Group } from "../../layouts/Group";
+import { Display } from "../typography";
 
 import { siteConfig } from "@/config/site";
 
-type ExperienceProps = (typeof siteConfig.experience)[0];
+type ExperienceProps = (typeof siteConfig.experience)[number] & {
+  isFirst?: boolean;
+};
 
 export const Experience = ({
   jobTitle,
@@ -14,7 +13,9 @@ export const Experience = ({
   startDate,
   endDate,
   achievements,
-}: ExperienceProps) => {
+  formerly,
+  isFirst = false,
+}: ExperienceProps & { formerly?: string; endDate?: string }) => {
   const startDateStr = new Date(startDate).toLocaleString("default", {
     month: "short",
     year: "numeric",
@@ -24,47 +25,44 @@ export const Experience = ({
         month: "short",
         year: "numeric",
       })
-    : "Current";
+    : "Present";
 
   return (
-    <div className="relative pl-0 sm:pl-8">
-      <span className="hidden sm:block absolute left-[3px] sm:left-[7px] top-6 h-3 w-3 rounded-full bg-black dark:bg-white ring-2 ring-background" />
+    <article
+      className={`grid grid-cols-1 gap-x-8 gap-y-1.5 py-6 sm:grid-cols-[9.5rem_minmax(0,1fr)] ${
+        isFirst ? "border-t-0 pt-1" : "border-t border-rule"
+      }`}
+    >
+      <p className="pt-1 font-mono text-xs tabular-nums text-muted">
+        {startDateStr} — {endDateStr}
+      </p>
 
-      <Card
-        className="border border-default-300/80 dark:border-default-100/35 ring-1 ring-default-300/50 dark:ring-default-100/25 bg-default-100/70 dark:bg-default-100/15 backdrop-blur-md shadow-lg transition-all duration-250 hover:-translate-y-0.5 hover:shadow-xl"
-        radius="sm"
-      >
-        <CardBody className="p-4 sm:p-6">
-          <Group fullWidth className="gap-4 sm:gap-5" direction="vertical">
-            <Group
-              className="justify-between items-start gap-3 sm:gap-4 flex-wrap"
-              direction="horizontal"
+      <div>
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <Display className="text-xl">{companyName}</Display>
+          {formerly ? (
+            <span className="font-display text-sm italic text-muted">
+              formerly {formerly}
+            </span>
+          ) : null}
+        </div>
+
+        <p className="mt-0.5 text-[0.9375rem] text-ink-soft">
+          {jobTitle}
+          <span className="ml-2 font-mono text-xs text-muted">{location}</span>
+        </p>
+
+        <ul className="mt-3.5 flex max-w-[64ch] flex-col gap-2.5">
+          {achievements.map((achievement) => (
+            <li
+              key={achievement}
+              className="relative pl-[1.1rem] text-[0.9375rem] text-ink-soft text-pretty before:absolute before:left-0 before:top-[0.72em] before:h-px before:w-[0.45rem] before:bg-teal"
             >
-              <BlackWhiteGradientText
-                className="text-sm sm:text-lg"
-                label={jobTitle}
-              />
-              <span className="text-xs px-3 py-1 rounded-full bg-default-100 text-default-700 whitespace-nowrap font-medium tracking-wide uppercase">
-                {`${startDateStr} / ${endDateStr}`}
-              </span>
-            </Group>
-
-            <Group
-              className="justify-between text-xs sm:text-sm text-default-600 gap-3 flex-wrap"
-              direction="horizontal"
-            >
-              <span className="font-medium">{companyName}</span>
-              <span>{location}</span>
-            </Group>
-
-            <ul className="list-disc ml-5 space-y-1.5 sm:space-y-2 text-xs sm:text-sm leading-relaxed text-default-700 marker:text-default-500">
-              {achievements.map((achievement) => (
-                <li key={achievement}>{achievement}</li>
-              ))}
-            </ul>
-          </Group>
-        </CardBody>
-      </Card>
-    </div>
+              {achievement}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
   );
 };

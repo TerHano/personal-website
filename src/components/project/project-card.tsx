@@ -1,6 +1,3 @@
-import { Card, CardFooter } from "@heroui/card";
-import { Chip } from "@heroui/chip";
-import { Image } from "@heroui/image";
 import { Link } from "@heroui/link";
 import {
   Modal,
@@ -10,50 +7,13 @@ import {
   ModalFooter,
 } from "@heroui/modal";
 import { useState } from "react";
-import {
-  IconBrandReact,
-  IconClock,
-  IconLock,
-  IconServer,
-} from "@tabler/icons-react";
 import { Button } from "@heroui/button";
 
-import { DiscordIcon } from "@/components/icons";
+import { Display } from "@/components/typography";
 import { siteConfig } from "@/config/site";
 import { Magnetic } from "@/components/magnetic";
 
 type ProjectCardProps = (typeof siteConfig.projects)[0];
-
-const technologyColorMap: Record<
-  string,
-  "default" | "primary" | "secondary" | "success" | "warning" | "danger"
-> = {
-  React: "primary",
-  SignalR: "secondary",
-  ".NET": "success",
-  Quartz: "warning",
-  "Discord Webhooks": "secondary",
-  "JWT Auth": "danger",
-};
-
-const getTechnologyIcon = (technology: string) => {
-  switch (technology) {
-    case "React":
-      return <IconBrandReact size={14} />;
-    case "SignalR":
-      return <IconServer size={14} />;
-    case ".NET":
-      return <IconServer size={14} />;
-    case "Quartz":
-      return <IconClock size={14} />;
-    case "Discord Webhooks":
-      return <DiscordIcon size={14} />;
-    case "JWT Auth":
-      return <IconLock size={14} />;
-    default:
-      return <IconServer size={14} />;
-  }
-};
 
 export const ProjectCard = ({
   name,
@@ -67,26 +27,39 @@ export const ProjectCard = ({
 
   return (
     <>
-      <Card
-        isFooterBlurred
-        isPressable
-        className="group w-full h-[220px] col-span-1 overflow-hidden border border-default-300/80 dark:border-default-100/35 ring-1 ring-default-300/45 dark:ring-default-100/25 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:ring-primary-300/55"
+      <button
+        className="group flex h-full w-full flex-col overflow-hidden rounded-sm border border-rule bg-raised text-left transition-colors duration-200 hover:border-teal"
+        type="button"
         onClick={() => setIsOpen(true)}
       >
-        <Image
-          alt="Project Image"
-          className="z-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-          src={imageSrc ?? "https://heroui.com/images/card-example-5.jpeg"}
-        />
-        <CardFooter className="absolute bg-black/45 backdrop-blur-md bottom-0 z-10 border-t-1 border-white/10 w-full">
-          <div className="flex flex-grow gap-2 items-center truncate">
-            <div className="flex flex-col text-start">
-              <p className="text-sm font-semibold text-white/90">{name}</p>
-              <p className="text-tiny  text-white/60">{description}</p>
+        <div className="aspect-[16/10] w-full overflow-hidden border-b border-rule bg-paper">
+          <img
+            alt={`${name} preview`}
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+            loading="lazy"
+            src={imageSrc}
+          />
+        </div>
+
+        <div className="flex flex-1 flex-col gap-1.5 p-4">
+          <Display className="text-lg">{name}</Display>
+          <p className="text-sm text-ink-soft text-pretty">{description}</p>
+
+          {technologies?.length ? (
+            <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
+              {technologies.map((technology) => (
+                <span
+                  key={technology}
+                  className="rounded-sm border border-rule px-2 py-0.5 font-mono text-[0.6875rem] text-muted"
+                >
+                  {technology}
+                </span>
+              ))}
             </div>
-          </div>
-        </CardFooter>
-      </Card>
+          ) : null}
+        </div>
+      </button>
+
       <Modal
         backdrop="blur"
         isOpen={isOpen}
@@ -95,62 +68,59 @@ export const ProjectCard = ({
         size="2xl"
         onOpenChange={(open) => setIsOpen(open)}
       >
-        <ModalContent className="border border-default-200/70 dark:border-default-100/20">
+        <ModalContent className="rounded-sm border border-rule bg-raised">
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">{name}</ModalHeader>
+              <ModalHeader className="font-display text-2xl font-normal tracking-[-0.02em] text-ink">
+                {name}
+              </ModalHeader>
               <ModalBody>
                 <div className="flex flex-col gap-4">
-                  <div className="flex justify-center">
-                    <Image
-                      alt={`${name} preview`}
-                      className="max-w-md"
-                      src={imageSrc}
-                      width={420}
-                    />
-                  </div>
-                  <p className="text-sm leading-relaxed text-default-800 text-center">
+                  <img
+                    alt={`${name} preview`}
+                    className="w-full rounded-sm border border-rule object-cover"
+                    src={imageSrc}
+                  />
+                  <p className="font-display text-lg leading-relaxed text-ink-soft text-pretty">
                     {description}
                   </p>
                   {subDescription ? (
-                    <p className="text-sm leading-relaxed text-default-500 text-center">
+                    <p className="text-sm leading-relaxed text-ink-soft text-pretty">
                       {subDescription}
                     </p>
                   ) : null}
                   {technologies?.length ? (
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-2">
                       {technologies.map((technology) => (
-                        <Chip
+                        <span
                           key={technology}
-                          color={technologyColorMap[technology] ?? "default"}
-                          size="sm"
-                          startContent={getTechnologyIcon(technology)}
-                          variant="flat"
+                          className="rounded-sm border border-rule px-2.5 py-1 font-mono text-xs text-ink-soft"
                         >
                           {technology}
-                        </Chip>
+                        </span>
                       ))}
                     </div>
                   ) : null}
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Magnetic strength={10}>
-                  <Button color="danger" variant="light" onPress={onClose}>
-                    Close
-                  </Button>
-                </Magnetic>
-
+                <Button
+                  className="rounded-sm font-mono text-xs text-muted"
+                  variant="light"
+                  onPress={onClose}
+                >
+                  Close
+                </Button>
                 <Magnetic strength={10}>
                   <Button
-                    showAnchorIcon
                     as={Link}
-                    color="primary"
-                    //endContent={<IconExternalLink />}
+                    className="rounded-sm border border-teal bg-teal-soft font-mono text-xs text-teal"
                     href={link}
+                    rel="noopener"
                     target="_blank"
+                    variant="flat"
                   >
-                    Visit
+                    Visit site ↗
                   </Button>
                 </Magnetic>
               </ModalFooter>

@@ -9,11 +9,14 @@ export const ExperienceSection = () => {
 
   return (
     <Section id="experience" label="Experience">
-      <div className="relative w-full max-w-4xl mx-auto flex flex-col gap-6">
-        <span className="hidden sm:block absolute left-2 sm:left-3 top-6 bottom-6 w-px bg-default-300" />
-        {workExperience.map((experience) => {
-          return <Experience key={experience.jobTitle} {...experience} />;
-        })}
+      <div className="flex w-full flex-col">
+        {workExperience.map((experience, index) => (
+          <Experience
+            key={`${experience.companyName}-${experience.jobTitle}`}
+            {...experience}
+            isFirst={index === 0}
+          />
+        ))}
       </div>
     </Section>
   );

@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
     "@heroui/avatar": "2.2.19",
     "@heroui/button": "2.2.23",
     "@heroui/card": "2.2.22",
